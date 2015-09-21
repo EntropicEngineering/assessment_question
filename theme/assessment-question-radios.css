@@ -1,0 +1,15 @@
+.form-type-radios .rubric .form-type-radio {
+    float: left;
+    margin: 2px;
+    padding: 10px;
+    border: 1px solid #666;
+    max-width: 18%;
+    width: 18%;
+}
+.form-type-radios .description {
+    clear: both;
+}
+
+.form-type-radios .rubric .clicked {
+    background: #e0f2be;
+}
