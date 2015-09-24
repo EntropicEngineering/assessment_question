@@ -25,16 +25,17 @@ class AssessmentQuestion extends QuizQuestion {
         ->fields(array(
           'nid' => $this->node->nid,
           'vid' => $this->node->vid,
-          'rubric' => $this->node->rubric,
         ))
         ->execute();
     }
     else {
+      /*
       db_update('quiz_assessment_question_node_properties')
         ->fields(array('rubric' => $this->node->rubric))
         ->condition('nid', $this->node->nid)
         ->condition('vid', $this->node->vid)
         ->execute();
+      */
     }
   }
 
