@@ -6,6 +6,7 @@
  * @file
  *  Classes modelling the assessment question question and the assessment question question response
  */
+module_load_include('inc', 'quiz_question', 'quiz_question.core');
 
 
 /**
@@ -108,7 +109,6 @@ class AssessmentQuestion extends QuizQuestion {
     if ($this->viewCanRevealCorrect()) {
       $content['answers'] = array(
         '#type' => 'item',
-        '#title' => t('Rubric'),
         '#markup' => '<div class="quiz-solution">' . check_markup($this->node->rubric, $this->getFormat()) . '</div>',
         '#weight' => 1,
       );

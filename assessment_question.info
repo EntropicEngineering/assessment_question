@@ -1,4 +1,4 @@
-name = Long Answer
+name = Assessment Question 
 package = Quiz Question
 description = This provides assessment question (essay, multi-paragraph) question types for use by the Quiz module.
 dependencies[] = quiz
@@ -6,11 +6,3 @@ dependencies[] = quiz_question
 core = 7.x
 
 files[] = assessment_question.classes.inc
-files[] = assessment_question.test
-
-; Information added by Drupal.org packaging script on 2015-06-23
-version = "7.x-4.0-rc1"
-core = "7.x"
-project = "quiz"
-datestamp = "1435086185"
-
