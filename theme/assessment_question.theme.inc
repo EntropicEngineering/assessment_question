@@ -43,5 +43,6 @@ function theme_assessment_question_view_unscored($variables) {
  */
 function theme_assessment_question_response_form($variables) {
   $form = $variables['form'];
+  dpm($form);
   return drupal_render_children($form);
 }

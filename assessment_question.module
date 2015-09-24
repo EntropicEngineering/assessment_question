@@ -117,7 +117,11 @@ function assessment_question_score_an_answer($values, $update_total = TRUE) {
 
   $calculated_score=$score * $question_max_score / $quiz_max_score;
 
-  $rubric_number = 3 - 1;
+  // @TODO Should we be loading based on VID? That can cause weirdness with scoring.
+  $question = node_load($nid);
+  $rubric_options_result = field_get_items('node', $question, 'field_rubric_options');
+
+  $rubric_number = count($rubric_options_result) - 1;
   $points_per = $question_max_score / $rubric_number;
   $calculated_score = $rubric_score * $points_per;
 
