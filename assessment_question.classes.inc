@@ -6,8 +6,6 @@
  * @file
  *  Classes modelling the assessment question question and the assessment question question response
  */
-module_load_include('inc', 'quiz_question', 'quiz_question.core');
-
 
 /**
  * Extension of QuizQuestion.
