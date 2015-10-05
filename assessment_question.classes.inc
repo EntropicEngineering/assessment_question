@@ -355,7 +355,6 @@ class AssessmentResponse extends QuizQuestionResponse {
     else {
       return $form;
     }
-    // $form['answer'] = array('#markup' => check_markup($answer->answer));
     if ($answer->is_evaluated == 1) {
       // Show feedback, if any.
       if ($showfeedback && !empty($answer->feedback)) {
@@ -378,13 +377,14 @@ class AssessmentResponse extends QuizQuestionResponse {
       $form['rubric'] = array(
         '#type' => 'radios',
         '#title' => $question->title,
-        '#description' => $question->content['body'][0]['#markup'],
+        '#description' => t('Select an option to grade this criteria'),
         '#options' => $options,
         '#default_value' => $this->answer,
         '#theme' => 'assessment_question_rubric_radios',
         '#attributes' => array('class' => array('rubric')),
       ); 
     }
+    /*
     if (!$allow_scoring && !empty($this->answer_feedback)) {
       $form['answer_feedback'] = array(
         '#title' => t('Feedback'),
@@ -395,6 +395,7 @@ class AssessmentResponse extends QuizQuestionResponse {
     if (!empty($feedback)) {
       $form['feedback'] = array('#markup' => '<span class="quiz_answer_feedback">' . $feedback . '</span>');
     }
+    */
     $form['#attached']['css'][] = drupal_get_path('module', 'assessment_question') . '/theme/assessment-question-radios.css';
     $form['#attached']['js'][] = drupal_get_path('module', 'assessment_question') . '/theme/assessment-question-radios.js';
     return $form;
@@ -472,6 +473,10 @@ class AssessmentResponse extends QuizQuestionResponse {
       return round($this->score * $this->question->score_weight);
     }
     return $this->score;
+  }
+
+  public function getReportFormTheme($showfeedback = TRUE, $showpoints = TRUE) {
+    return 'assessment_question_report_form';
   }
 }
 

@@ -5,7 +5,7 @@
     border: 1px solid #666;
     max-width: 17%;
     width: 17%;
-    min-height: 150px;
+    min-height: 80px;
 }
 .form-type-radios .description {
     clear: both;

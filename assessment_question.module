@@ -72,6 +72,11 @@ function assessment_question_theme() {
       'path' => drupal_get_path('module', 'assessment_question') . '/theme',
       'template' => 'assessment question-answering-form',
     ),
+    'assessment_question_report_form' => array(
+      'render element' => 'form',
+      'path' => drupal_get_path('module', 'assessment_question') . '/theme',
+      'template' => 'assessment-question-report-form',
+    ),
   );
 }
 
