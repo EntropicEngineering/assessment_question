@@ -83,16 +83,6 @@ class AssessmentQuestion extends QuizQuestion {
     }
     $props = parent::getNodeProperties();
 
-    /**
-     *
-     $res_a = db_query('SELECT rubric FROM {quiz_assessment_question_node_properties}
-      WHERE nid = :nid AND vid = :vid', array(':nid' => $this->node->nid, ':vid' => $this->node->vid))->fetchAssoc();
-     */
-
-    if (is_array($res_a)) {
-      $props = array_merge($props, $res_a);
-    }
-
     $this->nodeProperties = $props;
     return $props;
   }
