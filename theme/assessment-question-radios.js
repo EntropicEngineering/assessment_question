@@ -13,7 +13,7 @@
           }
           $('.form-type-radios .rubric .form-type-radio').click(function() {
               $(this).find('input.rubric').attr( "checked", "checked");
-              $('.form-type-radios .rubric .form-type-radio').removeClass('clicked');
+              $(this).siblings().removeClass('clicked')
               $(this).addClass('clicked');
           });
 
