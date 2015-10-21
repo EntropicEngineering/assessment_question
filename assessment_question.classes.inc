@@ -94,6 +94,10 @@ class AssessmentQuestion extends QuizQuestion {
    */
   public function getNodeView() {
     $content = parent::getNodeView();
+    /**
+     * @TODO: this code results in undefined property errors as-is and is not required for instructor assessment.
+     * We can revisit it if we need to put something in so students can review the result.
+     *
     if ($this->viewCanRevealCorrect()) {
       $content['answers'] = array(
         '#type' => 'item',
@@ -107,6 +111,7 @@ class AssessmentQuestion extends QuizQuestion {
         '#weight' => 1,
       );
     }
+    */
     return $content;
   }
 
@@ -176,6 +181,18 @@ class AssessmentQuestion extends QuizQuestion {
  * Extension of QuizQuestionResponse
  */
 class AssessmentResponse extends QuizQuestionResponse {
+
+  protected $rid = 0;
+  protected $is_correct = FALSE;
+  protected $evaluated = FALSE;
+
+  // The question node(not a quiz question instance)
+  public $question = NULL;
+
+  protected $answer = NULL;
+  protected $score = 0;
+  public $is_skipped;
+  public $is_doubtful;
 
   /**
    * Get all scores that have not yet been evaluated.
@@ -370,7 +387,6 @@ class AssessmentResponse extends QuizQuestionResponse {
         '#description' => t('Select an option to grade this criteria'),
         '#options' => $options,
         '#default_value' => $this->answer,
-        '#theme' => 'assessment_question_rubric_radios',
         '#attributes' => array('class' => array('rubric')),
       ); 
     }
