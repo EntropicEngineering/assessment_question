@@ -3,6 +3,7 @@ package = Quiz Question
 description = This provides assessment question (essay, multi-paragraph) question types for use by the Quiz module.
 dependencies[] = quiz
 dependencies[] = quiz_question
+dependencies[] = xlms_instructor_assessment
 core = 7.x
 
 files[] = assessment_question.classes.inc
